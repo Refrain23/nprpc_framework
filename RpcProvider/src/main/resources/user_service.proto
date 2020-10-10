@@ -1,0 +1,32 @@
+syntax = "proto3";
+package com.liming;
+option java_outer_classname = "UserServiceProto"; // 生成的类名
+option java_generic_services = true;              // 根据下面定义的service类和方法生成代理类
+// proto文件应该根据provider提供的方法写
+// 对应UserSerivceImpl中的login方法
+message LoginRequest {
+    string name = 1;
+    string pwd = 2;
+}
+// 对应UserSerivceImpl中的reg方法
+message RegRequest {
+    string name = 1;
+    string pwd = 2;
+    int32 age = 3;
+    enum SEX {
+        MAN = 0;
+        WOMAN = 1;
+    }
+    SEX sex = 4;
+    string phone = 5;
+}
+message Response {
+    int32 errno = 1;    // 错误码
+    string errinfo = 2; // 错误信息
+    bool result = 3;    // RPC调用返回值
+}
+//定义RPC服务接口类和服务方法
+service UserServiceRpc{
+    rpc login(LoginRequest) returns (Response);
+    rpc reg(RegRequest) returns (Response);
+}

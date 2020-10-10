@@ -1,0 +1,4 @@
+# Project exclude paths
+/nprpc/target/
+/RpcConsumer/target/
+/RpcProvider/target/

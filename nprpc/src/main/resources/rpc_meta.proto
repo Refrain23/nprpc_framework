@@ -1,0 +1,9 @@
+syntax = 'proto3';
+
+option java_outer_classname = "RpcMetaProto";
+option java_package = "com.liming";
+
+message RpcMeta {
+    string serviceName = 1;
+    string methodName = 2;
+}

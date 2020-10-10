@@ -1,0 +1,8 @@
+syntax = "proto3";      // 定义版本号、必须写 不写默认2号
+package com.liming;     // 生成java类的包名
+option java_outer_classname = "TestProto";   // 生成的类名
+option java_generic_services = true;
+message LoginRequest {     // 实际生成的实体类
+    string name = 1;       // 成员序号
+    string pwd = 2;
+}
